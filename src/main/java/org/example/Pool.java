@@ -20,16 +20,16 @@ public class Pool {
       return 0;
     }
 
-    int pool = 0, localPools = 0, barsHeight = 0, maxRight = bars[startIndex],
+    int pool = 0, localPools = 0, barsHeight = 0, maxRightBar = bars[startIndex],
         leftBarIndex = startIndex, localLeftBarIndex = startIndex;
 
     for (int i = startIndex + 1; i < n; i++) {
       int bar = bars[i];
 
       if (bar > 0) {
-        if (bar >= maxRight) {
+        if (bar >= maxRightBar) {
           pool += poolSize(leftBarIndex, i, bars) - barsHeight;
-          maxRight = bar;
+          maxRightBar = bar;
           leftBarIndex = localLeftBarIndex = i;
           // drop local pools info
           barsHeight = 0;
